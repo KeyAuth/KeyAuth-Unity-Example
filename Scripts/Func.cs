@@ -67,9 +67,9 @@ public class Func : MonoBehaviour
     }
 
     private static api KeyAuthApp = new api(
-    name: "UnityTest", // the name of your keyauth application
-    ownerid: "7AvflSMyig", // your ownerID can be found in your keyauth settings
-    secret: "39f456f430a9c83de489ddc49f7f989fdfc9d9629e8bb469d12201d9e779aab8", // the secret can be found right under your application name
+    name: "", // the name of your keyauth application
+    ownerid: "", // your ownerID can be found in your keyauth settings
+    secret: "", // the secret can be found right under your application name
     version: "1.0" // the version of your application. By default the version will be 1.0, if you can it in your keyauth settings make sure you change it here or it won't work
     );
 
