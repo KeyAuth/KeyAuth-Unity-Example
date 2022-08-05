@@ -30,14 +30,19 @@ public class Func : MonoBehaviour
         registerStatusLbl,
         licenseOnlyStatusLbl;
 
+    [Header("Register No Key")]
+    public TextMeshProUGUI statusLbl;
+    public TMP_InputField usernameBox;
+    public TMP_InputField passwordBox;
+
     [Header("User Information")] // the display labels for all of the user information
     public TextMeshProUGUI
         currentSessionLbl,
         usernameLbl,
         expiryLbl,
         subscriptionsLbl,
-        ipAddressLbl,
-        hwidLbl,
+        //ipAddressLbl,
+        //hwidLbl,
         creationDateLbl,
         lastLoginLbl,
         expiresInLbl,
@@ -54,8 +59,8 @@ public class Func : MonoBehaviour
         usernameLbl.text = "Username: " + KeyAuthApp.user_data.username;
         expiryLbl.text = "Expiry: " + UnixTimeToDateTime(long.Parse(KeyAuthApp.user_data.subscriptions[0].expiry));
         subscriptionsLbl.text = "Subscriptions: " + KeyAuthApp.user_data.subscriptions[0].subscription;
-        ipAddressLbl.text = "IP Address: " + KeyAuthApp.user_data.ip;
-        hwidLbl.text = "HWID: " + KeyAuthApp.user_data.hwid;
+        //ipAddressLbl.text = "IP Address: " + KeyAuthApp.user_data.ip;
+        //hwidLbl.text = "HWID: " + KeyAuthApp.user_data.hwid;
         creationDateLbl.text = "Creation Date: " + UnixTimeToDateTime(long.Parse(KeyAuthApp.user_data.createdate));
         lastLoginLbl.text = "Last Login: " + UnixTimeToDateTime(long.Parse(KeyAuthApp.user_data.lastlogin));
         expiresInLbl.text = "Expires In: " + expirydaysleft();
@@ -66,11 +71,11 @@ public class Func : MonoBehaviour
         customerPanelLink.text = "Customer Panel: " + KeyAuthApp.app_data.customerPanelLink;
     }
 
-    private static api KeyAuthApp = new api(
-    name: "", // the name of your keyauth application
-    ownerid: "", // your ownerID can be found in your keyauth settings
-    secret: "", // the secret can be found right under your application name
-    version: "1.0" // the version of your application. By default the version will be 1.0, if you can it in your keyauth settings make sure you change it here or it won't work
+    public static api KeyAuthApp = new api(
+    name: "",
+    ownerid: "",
+    secret: "",
+    version: "1.0"
     );
 
     public DateTime UnixTimeToDateTime(long unixtime) // make sure that this is included so that it can properly get the expirations etc 
@@ -96,6 +101,12 @@ public class Func : MonoBehaviour
     public void ExitApplication() // this quits the application
     {
         Application.Quit(); 
+    }
+
+    public void noKeyRegister()
+    {
+        KeyAuthApp.webhook("WEBHOOKIDEHERE", "&type=adduser&user=" + usernameBox.text + "&sub=default&expiry=1&pass=" + passwordBox.text);
+        statusLbl.text = KeyAuthApp.response.message;
     }
 
     public void loginType() // method to login with username and password
