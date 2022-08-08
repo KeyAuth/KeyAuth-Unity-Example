@@ -52,6 +52,14 @@ public class Func : MonoBehaviour
         versionLbl,
         customerPanelLink;
 
+    [Header("Chatroom Features")]
+    private float timeToGatherMsgs = 10f; // the countdown time for when to grab messages again
+
+    public TMP_InputField testBox; // the object the messages get displayed on
+    public TMP_InputField chat_MsgToSend; // the input_field that contains the message you want to send
+    public TMP_InputField userToMute; // the username of the user that you want to mute
+    private bool getMessages = false; // status to check if you should be getting messages or not
+    private string chatchannel = "testing"; // the name of the chatroom (name is created on https://keyauth.win
 
     public void displayUserInformation() // when the user successfully logs in, it will display this information on the user information tab
     {
@@ -96,6 +104,14 @@ public class Func : MonoBehaviour
     public void Awake() // you can do Awake or you can use Start(), just make sure you have KeyAuthApp.init(); inside so that it can init the application so that it's useable 
     {
         KeyAuthApp.init();
+    }
+    
+    private void LateUpdate()
+    {
+        if (getMessages == true)
+        {
+            retrieveMessages();
+        }
     }
 
     public void ExitApplication() // this quits the application
@@ -153,5 +169,53 @@ public class Func : MonoBehaviour
         {
             licenseOnlyStatusLbl.text = KeyAuthApp.response.message;
         }
+    }
+    
+    public void sendMsg() // method to send a message in the chatroom
+    {
+        if (KeyAuthApp.chatsend(chat_MsgToSend.text, chatchannel))
+        {
+            testBox.text += KeyAuthApp.user_data.username + ": " + chat_MsgToSend + "\n\n";
+            chat_MsgToSend.text = null;
+        }
+    }
+
+    public void retrieveMessages() // method to gather all messages and place in the chatroom
+    {
+        timeToGatherMsgs--; 
+        if (timeToGatherMsgs == 0)
+        {
+            testBox.text = null; 
+            if (!String.IsNullOrEmpty(chatchannel)) 
+            {
+                var messages = KeyAuthApp.chatget(chatchannel);
+                if (messages == null || messages[0].message == "not_found")
+                {
+                    Debug.Log("No Messages");
+                }
+                else
+                {
+                    foreach (var message in messages)
+                    {
+                        testBox.text += message.author + ":   " + message.message + "\n\n";
+                        timeToGatherMsgs = 10f;
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log("No msgs");
+            }
+        }
+    }
+
+    public void clearAllMessages()
+    {
+        KeyAuthApp.webhook("WEBHOOKIDHERE", "&type=clearchannel&name=channelnamehere");
+    }
+
+    public void muteUserInChat()
+    {
+        KeyAuthApp.webhook("WEBHOOKDIDHERE", "&type=muteuser&user=" + userToMute.text + "&time=60");
     }
 }
