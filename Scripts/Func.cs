@@ -134,6 +134,7 @@ public class Func : MonoBehaviour
             displayUserInformation();
             loginUsername.text = null;
             loginPassword.text = null;
+            getMessages = true;
         }
         else
         {
@@ -164,6 +165,7 @@ public class Func : MonoBehaviour
         {
             licenseOnlyStatusLbl.text = "Success";
             logRegLicense.text = null;
+            getMessages = true;
         }
         else
         {
