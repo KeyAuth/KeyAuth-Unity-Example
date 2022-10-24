@@ -1,27 +1,7 @@
-Here you will find all the extras as well as the proper way to setup the example. It is really simple to setup and you can always ask for help on https://community.keyauth.win 
+If you need any assistance with the setup of this please visit https://discord/gg/KeyAuth
 
-Optional Functions:
-[Webhooks]
-KeyAuthApp.webhook("lfvbBrbFhIr", "?sellerkey=CUqDqlCIgl&type=resethash");
-> send secure request to webhook which is impossible to crack into. the base link set on the website is https://keyauth.win/api/seller/, which nobody except you can see, so the final request is https://keyauth.win/api/seller/?sellerkey=CUqDqlCIgl&type=resethash
+This is just a basic example showing you the inital setup. You can add as much as you want to this, or remove features that you do not want. Please keep in mind that there are a ton of features that are in relation to the ones that you see in the example. 
 
+Ex: For the chatroom you can send a message and get the message, however if you purchase the seller plan for $19.99/yr you can mute users, delete all chats, etc.
 
-[Download Files]
-byte[] result = KeyAuthApp.download("902901"); 
-File.WriteAllBytes("C:\\Users\\Username\\Downloads\\KeyAuth-CSHARP-Example-main (5)\\KeyAuth-CSHARP-Example-main\\ConsoleExample\\bin\\Debug\\countkeys.txt", result);
-> downloads application file
-
-
-[Show Variable(s)]
-MessageBox.Show(KeyAuthApp.var("123456"));
-> retrieve application variable
-
-
-
-[Chatrooms]
-Not yet available in this example ... coming soon. The code is included in api.cs however there is not example code to show you how to set it up
-
-
-
-[LeaderBoards]
-Not yet available in this example ... coming soon. The code is included in api.cs however there is not example code to show you how to set it up
+View https://docs.keyauth.cc - I highly suggest you purchase the seller subscription for $19.99/yr because it is without a doubt, 100% worth it. 
