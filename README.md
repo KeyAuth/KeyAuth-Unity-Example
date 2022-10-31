@@ -1,7 +1,12 @@
-If you need any assistance with the setup of this please visit https://discord/gg/KeyAuth
+# KeyAuth-CSHARP-Example
+KeyAuth CSHARP Example For The https://keyauth.cc Authentication system.
 
-This is just a basic example showing you the inital setup. You can add as much as you want to this, or remove features that you do not want. Please keep in mind that there are a ton of features that are in relation to the ones that you see in the example. 
+**What is KeyAuth?**
 
-Ex: For the chatroom you can send a message and get the message, however if you purchase the seller plan for $19.99/yr you can mute users, delete all chats, etc.
+KeyAuth is an Open source authentication system with cloud hosting plans as well. Client SDKs available for C++, C#, Python, Rust, PHP, JS, GO, Ruby and VB.NET. KeyAuth has several unique features such as memory streaming, webhook function where you can send requests to API without leaking the API, discord webhook notifications, ban the user securely through the application at your discretion. Feel free to join https://discord.gg/keyauth If you are experiencing account issues.
 
-View https://docs.keyauth.cc - I highly suggest you purchase the seller subscription for $19.99/yr because it is without a doubt, 100% worth it. 
+**Customer connection issues?**
+
+This is common amongst all authentication systems. Program obfuscation causes false positives in virus scanners, and with the scale of KeyAuth this is perceived as a malicious domain. So, `keyauth.com` and `keyauth.win` have been blocked by many internet providers. for dashbord, reseller panel, customer panel, use `keyauth.cc`
+
+For API, `keyauth.cc` will not work because I purposefully blocked it on there so `keyauth.cc` doesn't get blocked also. So, you should create your own domain and follow this tutorial video https://www.youtube.com/watch?v=a2SROFJ0eYc. The tutorial video shows you how to create a domain name for 100% free if you don't want to purchase one.
