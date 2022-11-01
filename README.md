@@ -1,5 +1,5 @@
 # KeyAuth-Unity-Example
-KeyAuth CSHARP Example For The https://keyauth.cc Authentication system.
+KeyAuth Unity Example For The https://keyauth.cc Authentication system.
 
 ## What is KeyAuth?
 
