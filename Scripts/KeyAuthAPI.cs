@@ -152,7 +152,7 @@ namespace KeyAuth
             {
                 ["type"] = encryption.byte_arr_to_str(Encoding.Default.GetBytes("init")),
                 ["ver"] = encryption.encrypt(version, secret, init_iv),
-                ["hash"] = checksum(Process.GetCurrentProcess().MainModule.FileName),
+                ["hash"] = null,
                 ["enckey"] = encryption.encrypt(enckey, secret, init_iv),
                 ["name"] = encryption.byte_arr_to_str(Encoding.Default.GetBytes(name)),
                 ["ownerid"] = encryption.byte_arr_to_str(Encoding.Default.GetBytes(ownerid)),
