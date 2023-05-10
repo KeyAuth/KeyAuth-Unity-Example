@@ -49,9 +49,9 @@ public class KeyAuthManager : MonoBehaviour
     /// You can get all of this information from visiting the KeyAuth dashboard. You can copy and paste it all from the c# section, make sure you change all of this information to YOUR app details. This is a test app that was deleted!
     /// </summary>
     public static api KeyAuthApp = new api(
-     name: "UnityTutorial",
-     ownerid: "7AvflSMyig",
-     secret: "fb358a2e161466312939a6d711394420fffe3ffbad8fb43a7e91d20e2c46873d",
+     name: "NameOfYourKeyAuthApp",
+     ownerid: "KeyAuthOwnerID",
+     secret: "KeyAuthAppSecret",
      version: "1.0"
     );
 
