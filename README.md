@@ -1,4 +1,4 @@
-# KeyAuth-Unity-Example
+# KeyAuth-Unity-Example : Please star 🌟
 KeyAuth Unity Example For The https://keyauth.cc Authentication system.
 
 ### **Bugs**
